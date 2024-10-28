@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mystery Quest", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.banner {
+  max-width: 500px;
+  min-height: 100vh;
+  background-image: url("../img/halloween-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+}
+
+.heading-wrapper {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  padding-top: 150px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(44 35 35);
+}
+
+.heading.shake {
+  color: rgb(238 113 46);
+}
+
+.btn.play {
+  font-family: "Mystery Quest", system-ui;
+  padding: 2rem;
+  border: none;
+  background-image: url("../img/pumpkin.png");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* media queries */
+
+@media (max-width: 575px) {
+  .banner {
+    width: 100vw;
+  }
+  .heading-wrapper {
+    padding-top: 0px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .heading-wrapper {
+    padding-top: 0px;
+  }
+}
+
+@media (min-width: 576px) {
+  .banner {
+    width: 500px;
+  }
+}
