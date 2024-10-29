@@ -208,7 +208,7 @@
             treatBtn.addEventListener('click', () => location.reload());
 
             // Викликаємо applyMediaStyles після додавання елемента до DOM
-            applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1);
+            applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1, hintText);
 
         }
 
@@ -249,7 +249,7 @@
             mediaQueryLarge.addEventListener('change', handleTrickMediaChange);
         }
         
-        function applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1) {
+        function applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1, hintText) {
             const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
             const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
             const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
@@ -258,7 +258,9 @@
                 if (mediaQuerySmall.matches) {
                     treatBanner.style.width = '100vw';
                     treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 1fr';
-                    if (treatHeading1) treatHeading1.style.alignSelf = 'center';
+                    if (treatHeading1) {
+                        treatHeading1.style.alignSelf = 'center';
+                    }
                     if (arrowDown) {
                         arrowDown.style.width = '1.5rem';
                         arrowDown.style.height = '1rem';
@@ -270,9 +272,14 @@
                     if (arrowDown) {
                         arrowDown.style.width = '2rem';
                         arrowDown.style.height = '1.5rem';
-                        arrowDown.style.alignSelf = 'start';
+                       
                     }
-                    if (treatHeading1) treatHeading1.style.alignSelf = 'center';
+                    if (treatHeading1) {
+                        treatHeading1.style.alignSelf = 'center';
+                    }
+                    if (hintText) {
+                        hintText.style.alignSelf = 'start';
+                    }
                 } else if (mediaQueryLarge.matches) {
                     treatBanner.style.width = '500px';
                     treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
