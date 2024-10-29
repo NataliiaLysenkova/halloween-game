@@ -127,7 +127,7 @@
             treatBanner.style.backgroundPosition = 'top center';
             treatBanner.style.display = 'grid';
             treatBanner.style.gridTemplateColumns = '1fr';
-            treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 1fr 1fr';
+            treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 10% 10%';
             treatBanner.style.justifyItems = 'center';
             treatBanner.style.alignItems = 'center';
 
@@ -135,7 +135,6 @@
             treatHeading1.style.color = 'rgb(245, 135, 38)';
             treatHeading1.style.animation = 'flash 1s ease infinite alternate';
             treatHeading1.style.marginBottom = '0';
-            treatHeading1.style.alignSelf = 'end';
             treatHeading2.style.color = 'rgb(0, 0, 0)';
             treatHeading2.style.marginBottom = '0';
             
@@ -143,7 +142,6 @@
             arrowDown.style.display = 'block';
             arrowDown.style.width = '3rem';
             arrowDown.style.height = '3rem';
-            arrowDown.style.alignSelf = 'end';
             arrowDown.style.backgroundImage = 'url("img/blue-arrow-down.png")';
             arrowDown.style.backgroundSize = 'contain';
             arrowDown.style.backgroundPosition = 'center';
@@ -208,7 +206,7 @@
             treatBtn.addEventListener('click', () => location.reload());
 
             // Викликаємо applyMediaStyles після додавання елемента до DOM
-            applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1, hintText);
+            applyTreatBannerStyles(treatBanner);
 
         }
 
@@ -249,7 +247,7 @@
             mediaQueryLarge.addEventListener('change', handleTrickMediaChange);
         }
         
-        function applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1, hintText) {
+        function applyTreatBannerStyles(treatBanner) {
             const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
             const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
             const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
@@ -257,39 +255,19 @@
             function handleTreatMediaChange() {
                 if (mediaQuerySmall.matches) {
                     treatBanner.style.width = '100vw';
-                    treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 1fr';
-                    if (treatHeading1) {
-                        treatHeading1.style.alignSelf = 'center';
-                    }
-                    if (arrowDown) {
-                        arrowDown.style.width = '1.5rem';
-                        arrowDown.style.height = '1rem';
-                        arrowDown.style.alignSelf = 'start';
-                    }
-                } else if (mediaQueryMedium.matches) {
+                    treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 10%';
+                } 
+                else if (mediaQueryMedium.matches) {
                     treatBanner.style.width = '500px';
-                    treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 1fr';
-                    if (arrowDown) {
-                        arrowDown.style.width = '2rem';
-                        arrowDown.style.height = '1.5rem';
-                       
-                    }
-                    if (treatHeading1) {
-                        treatHeading1.style.alignSelf = 'center';
-                    }
-                    if (hintText) {
-                        hintText.style.alignSelf = 'start';
-                    }
-                } else if (mediaQueryLarge.matches) {
+                    treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 10%';
+                } 
+                else if (mediaQueryLarge.matches) {
                     treatBanner.style.width = '500px';
-                    treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
-                } else {
+                    treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 10%';
+                } 
+                else {
                     treatBanner.style.width = '500px';
-                    treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 1fr 1fr';
-                    if (arrowDown) {
-                        arrowDown.style.width = '3rem';
-                        arrowDown.style.height = '3rem';
-                    }
+                    treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 10% 10%';
                 }
             }
         
