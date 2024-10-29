@@ -237,7 +237,7 @@ function applyMediaStyles(trickBanner, treatBanner) {
             }
             if (treatBanner) {
                 treatBanner.style.width = '100vw';
-                treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
+                // treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
             }
         } 
         // Застосовуємо стилі для середніх екранів
@@ -247,7 +247,7 @@ function applyMediaStyles(trickBanner, treatBanner) {
                 }
             if (treatBanner) {
                 treatBanner.style.width = '500px';
-                treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
+                // treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
                 
             }
         } 

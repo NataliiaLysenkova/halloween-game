@@ -68,16 +68,16 @@ body {
   .banner {
     width: 100vw;
   }
-  .heading-wrapper {
+  /* .heading-wrapper {
     padding-top: 0px;
-  }
+  } */
 }
 
-@media (min-width: 576px) and (max-width: 1024px) {
+/* @media (min-width: 576px) and (max-width: 1024px) {
   .heading-wrapper {
     padding-top: 0px;
   }
-}
+} */
 
 @media (min-width: 576px) {
   .banner {
