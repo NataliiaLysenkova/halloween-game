@@ -88,7 +88,7 @@
             trickBtn.addEventListener('click', () => location.reload());
 
            // Викликаємо applyMediaStyles після додавання елемента до DOM
-            applyMediaStyles(trickBanner, null); // Передаємо null для treatBanner
+            applyTrickBannerStyles(trickBanner);
         }
 
             //Treat Page
@@ -208,7 +208,8 @@
             treatBtn.addEventListener('click', () => location.reload());
 
             // Викликаємо applyMediaStyles після додавання елемента до DOM
-            applyMediaStyles(null, treatBanner); // Передаємо null для trickBanner
+            applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1);
+
         }
 
         // Функція для створення нового фону
@@ -225,67 +226,69 @@
         btnPlay.addEventListener('click', createNewBg);
 
         // Додаємо функцію для застосування медіа-запитів
-function applyMediaStyles(trickBanner, treatBanner) {
-    const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
-    const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
-    const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
-
-    function handleMediaChange() {
-        // Застосовуємо стилі для маленьких екранів
-        if (mediaQuerySmall.matches) {
-            if (trickBanner) {
-                trickBanner.style.width = '100vw'; 
-            }
-            if (treatBanner) {
-                treatBanner.style.width = '100vw';
-                treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 1fr';
-                treatHeading1.style.alignSelf = 'center';
-                arrowDown.style.width = '1.5rem';
-                arrowDown.style.height = '1rem';
-                arrowDown.style.alignSelf = 'start';
-            }
-        } 
-        // Застосовуємо стилі для середніх екранів
-        else if (mediaQueryMedium.matches) {
-                if (trickBanner) {
-                    trickBanner.style.width = '500px'; 
+        function applyTrickBannerStyles(trickBanner) {
+            const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
+            const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
+            const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
+        
+            function handleTrickMediaChange() {
+                if (mediaQuerySmall.matches) {
+                    trickBanner.style.width = '100vw';
+                } else if (mediaQueryMedium.matches) {
+                    trickBanner.style.width = '500px';
+                } else if (mediaQueryLarge.matches) {
+                    trickBanner.style.width = '500px';
+                } else {
+                    trickBanner.style.width = '500px';
                 }
-            if (treatBanner) {
-                treatBanner.style.width = '500px';
-                treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 1fr';
-                arrowDown.style.width = '2rem';
-                arrowDown.style.height = '1.5rem';
-                treatHeading1.style.alignSelf = 'center';
-                arrowDown.style.alignSelf = 'start';
-                
             }
-        } 
-        // Окоемі стилі для великих екранів для treatBanner
-        else if (mediaQueryLarge.matches) {
-        if (treatBanner) {
-            treatBanner.style.width = '500px';
-            treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
-            
+        
+            handleTrickMediaChange();
+            mediaQuerySmall.addEventListener('change', handleTrickMediaChange);
+            mediaQueryMedium.addEventListener('change', handleTrickMediaChange);
+            mediaQueryLarge.addEventListener('change', handleTrickMediaChange);
         }
-    } 
-        // Для великих екранів повертаємо початкові стилі
-        else {
-            if (trickBanner) {
-                trickBanner.style.width = '500px';
-                
+        
+        function applyTreatBannerStyles(treatBanner, arrowDown, treatHeading1) {
+            const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
+            const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
+            const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
+        
+            function handleTreatMediaChange() {
+                if (mediaQuerySmall.matches) {
+                    treatBanner.style.width = '100vw';
+                    treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 1fr';
+                    if (treatHeading1) treatHeading1.style.alignSelf = 'center';
+                    if (arrowDown) {
+                        arrowDown.style.width = '1.5rem';
+                        arrowDown.style.height = '1rem';
+                        arrowDown.style.alignSelf = 'start';
+                    }
+                } else if (mediaQueryMedium.matches) {
+                    treatBanner.style.width = '500px';
+                    treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 1fr';
+                    if (arrowDown) {
+                        arrowDown.style.width = '2rem';
+                        arrowDown.style.height = '1.5rem';
+                        arrowDown.style.alignSelf = 'start';
+                    }
+                    if (treatHeading1) treatHeading1.style.alignSelf = 'center';
+                } else if (mediaQueryLarge.matches) {
+                    treatBanner.style.width = '500px';
+                    treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
+                } else {
+                    treatBanner.style.width = '500px';
+                    treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 1fr 1fr';
+                    if (arrowDown) {
+                        arrowDown.style.width = '3rem';
+                        arrowDown.style.height = '3rem';
+                    }
+                }
             }
-            if (treatBanner) {
-                treatBanner.style.width = '500px';
-                treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 1fr 1fr';
-                
-            }
+        
+            handleTreatMediaChange();
+            mediaQuerySmall.addEventListener('change', handleTreatMediaChange);
+            mediaQueryMedium.addEventListener('change', handleTreatMediaChange);
+            mediaQueryLarge.addEventListener('change', handleTreatMediaChange);
         }
-    }
-
-    // Викликаємо handleMediaChange при ініціалізації
-    handleMediaChange();
-
-    // Додаємо обробник події для змін медіа-запитів
-    mediaQuerySmall.addEventListener('change', handleMediaChange);
-    mediaQueryMedium.addEventListener('change', handleMediaChange);
-}
+        
