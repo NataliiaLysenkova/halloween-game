@@ -129,6 +129,7 @@
             treatBanner.style.gridTemplateColumns = '1fr';
             treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 1fr 1fr';
             treatBanner.style.justifyItems = 'center';
+            treatBanner.style.alignItems = 'center';
 
             // Стилі для заголовків
             treatHeading1.style.color = 'rgb(245, 135, 38)';
@@ -237,7 +238,11 @@ function applyMediaStyles(trickBanner, treatBanner) {
             }
             if (treatBanner) {
                 treatBanner.style.width = '100vw';
-                // treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
+                treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 1fr';
+                treatHeading1.style.alignSelf = 'center';
+                arrowDown.style.width = '1.5rem';
+                arrowDown.style.height = '1rem';
+                arrowDown.style.alignSelf = 'start';
             }
         } 
         // Застосовуємо стилі для середніх екранів
@@ -247,7 +252,11 @@ function applyMediaStyles(trickBanner, treatBanner) {
                 }
             if (treatBanner) {
                 treatBanner.style.width = '500px';
-                // treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 1fr';
+                treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 1fr';
+                arrowDown.style.width = '2rem';
+                arrowDown.style.height = '1.5rem';
+                treatHeading1.style.alignSelf = 'center';
+                arrowDown.style.alignSelf = 'start';
                 
             }
         } 
