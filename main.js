@@ -255,7 +255,7 @@
             function handleTreatMediaChange() {
                 if (mediaQuerySmall.matches) {
                     treatBanner.style.width = '100vw';
-                    treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 10%';
+                    treatBanner.style.gridTemplateRows = '20% 9% 9% 30% 10% 10%';
                     if (arrowDown) {
                         arrowDown.style.width = '2rem';
                         arrowDown.style.height = '2rem';
