@@ -53,6 +53,7 @@ body {
 .btn.play {
   font-family: "Mystery Quest", system-ui;
   padding: 2rem;
+  border-radius: 50%;
   border: none;
   background-image: url("../img/pumpkin.png");
   background-size: contain;
