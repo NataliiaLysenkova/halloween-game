@@ -136,7 +136,7 @@
             treatHeading1.style.animation = 'flash 1s ease infinite alternate';
             treatHeading1.style.marginBottom = '0';
             treatHeading2.style.color = 'rgb(0, 0, 0)';
-            treatHeading2.style.marginBottom = '0';
+            treatHeading2.style.margin = '0';
             
             // Стилі для стрілки
             arrowDown.style.display = 'block';
