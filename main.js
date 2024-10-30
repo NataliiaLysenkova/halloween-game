@@ -206,7 +206,7 @@
             treatBtn.addEventListener('click', () => location.reload());
 
             // Викликаємо applyMediaStyles після додавання елемента до DOM
-            applyTreatBannerStyles(treatBanner);
+            applyTreatBannerStyles(treatBanner, arrowDown);
 
         }
 
@@ -247,7 +247,7 @@
             mediaQueryLarge.addEventListener('change', handleTrickMediaChange);
         }
         
-        function applyTreatBannerStyles(treatBanner) {
+        function applyTreatBannerStyles(treatBanner, arrowDown) {
             const mediaQuerySmall = window.matchMedia('(max-width: 575px)');
             const mediaQueryMedium = window.matchMedia('(max-width: 768px)');
             const mediaQueryLarge = window.matchMedia('(max-width: 1200px)');
@@ -255,19 +255,35 @@
             function handleTreatMediaChange() {
                 if (mediaQuerySmall.matches) {
                     treatBanner.style.width = '100vw';
-                    treatBanner.style.gridTemplateRows = '18% 10% 10% 35% 10% 10%';
+                    treatBanner.style.gridTemplateRows = '18% 10% 10% 30% 10% 10%';
+                    if (arrowDown) {
+                        arrowDown.style.width = '1rem';
+                        arrowDown.style.height = '1rem';
+                    }
                 } 
                 else if (mediaQueryMedium.matches) {
                     treatBanner.style.width = '500px';
                     treatBanner.style.gridTemplateRows = '20% 10% 10% 30% 10% 10%';
+                    if (arrowDown) {
+                        arrowDown.style.width = '2rem';
+                        arrowDown.style.height = '2rem';
+                    }
                 } 
                 else if (mediaQueryLarge.matches) {
                     treatBanner.style.width = '500px';
-                    treatBanner.style.gridTemplateRows = '16% 10% 10% 32% 10% 10%';
+                    treatBanner.style.gridTemplateRows = '20% 10% 10% 35% 10% 10%';
+                    if (arrowDown) {
+                        arrowDown.style.width = '3rem';
+                        arrowDown.style.height = '3rem';
+                    }
                 } 
                 else {
                     treatBanner.style.width = '500px';
                     treatBanner.style.gridTemplateRows = '20% 10% 10% 40% 10% 10%';
+                    if (arrowDown) {
+                        arrowDown.style.width = '3rem';
+                        arrowDown.style.height = '3rem';
+                    }
                 }
             }
         
