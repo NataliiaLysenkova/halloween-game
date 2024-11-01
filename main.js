@@ -1,11 +1,11 @@
         const btnPlay = document.querySelector('.btn.play');
         const container = document.querySelector('.container');
 
-        // Масив зображень для випадкового вибору
+        // Масив зображень для випадкового вибору з описами
         const trickImages = [
-            'img/ghost-holding-pumpkin-with-sweets.webp',
-            'img/cute-ghost-and-pumpkin.png',
-            'img/spider.webp'
+    { src: 'img/ghost-holding-pumpkin-with-sweets.webp', alt: 'Ghost holding pumpkin basket filled with sweets' },
+    { src: 'img/cute-ghost-and-pumpkins.png', alt: 'Cute ghost in a hat with pumpkins and bats' },
+    { src: 'img/spider.webp', alt: 'Illustration of a dark gray smiling Halloween spider' }
         ];
 
         //Trick Page
@@ -33,6 +33,7 @@
 
             // Додаємо фонове зображення через стиль
             trickBanner.style.backgroundImage = 'url("img/ghost.webp")';
+            trickBanner.setAttribute('aria-label', 'Dark blue background with a ghost that appears and disappears and the word “boo”');
             trickBanner.style.maxWidth = '500px';
             trickBanner.style.minHeight = '100vh';
             trickBanner.style.backgroundSize = 'cover';
@@ -58,7 +59,8 @@
             trickBtn.style.borderRadius = '50%';
             trickBtn.style.border = 'none';
             trickBtn.style.animation = 'move 2s linear infinite';
-            trickBtn.style.backgroundImage = 'url("img/moon.avif")';
+            trickBtn.style.backgroundImage = 'url("img/moon.avif"), url("img/moon.png")';
+            trickBtn.setAttribute('aria-label', 'Button with a white full moon and bats that returns to the main page');
             trickBtn.style.backgroundSize = 'cover';
             trickBtn.style.backgroundPosition = 'center';
             trickBtn.style.backgroundRepeat = 'no-repeat';
@@ -71,9 +73,13 @@
             imgWrapper.style.alignSelf = 'center';
 
             // Стилі для trickImage
-            const randomImage = trickImages[Math.floor(Math.random() * trickImages.length)];  // Випадковий вибір зображення для trickImage
-            trickImage.src = randomImage;
             trickImage.style.width = '100%';
+
+            // Випадковий вибір зображення для trickImage
+            const randomIndex = Math.floor(Math.random() * trickImages.length);
+            const randomImage = trickImages[randomIndex];
+            trickImage.src = randomImage.src; // Отримуємо шлях до зображення
+            trickImage.alt = randomImage.alt; // Отримуємо опис зображення
 
             // Додаємо елементи до контейнера
             container.appendChild(trickBanner);
@@ -119,7 +125,8 @@
             hintText.textContent = 'to get more sweets!';
 
             // Додаємо фонове зображення через стиль
-            treatBanner.style.backgroundImage = 'url("img/halloween-border.png")'; // Змінити на ваше зображення
+            treatBanner.style.backgroundImage = 'url("img/halloween-frame.png")'; 
+            treatBanner.setAttribute('aria-label', 'A Halloween frame with orange flowers, bats, castles, moon, tree and pumpkin');
             treatBanner.style.maxWidth = '500px';
             treatBanner.style.minHeight = '100vh';
             treatBanner.style.backgroundSize = 'cover';
@@ -143,6 +150,7 @@
             arrowDown.style.width = '3rem';
             arrowDown.style.height = '3rem';
             arrowDown.style.backgroundImage = 'url("img/blue-arrow-down.png")';
+            arrowDown.setAttribute('aria-label', 'Blue arrow pointing down at the animated image');
             arrowDown.style.backgroundSize = 'contain';
             arrowDown.style.backgroundPosition = 'center';
             arrowDown.style.backgroundRepeat = 'no-repeat';
@@ -154,6 +162,7 @@
  
              // Стилі для treatPrize
              treatPrize.src = 'img/treat.png'; 
+             treatPrize.alt = 'A Halloween treat bowl filled with colorful sweets that supports confetti animation on click';
              treatPrize.style.width = '100%';
              treatPrize.style.cursor = 'pointer';
 
@@ -182,6 +191,7 @@
             treatBtn.style.borderRadius = '50%';
             treatBtn.style.animation = 'gelatine 3s linear infinite';
             treatBtn.style.backgroundImage = 'url("img/candy.png")';
+            treatBtn.setAttribute('aria-label', 'Button with an orange dotted candy that returns to the main page');
             treatBtn.style.backgroundSize = 'contain';
             treatBtn.style.backgroundPosition = 'center';
             treatBtn.style.backgroundRepeat = 'no-repeat';
